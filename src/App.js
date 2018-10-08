@@ -2,7 +2,7 @@ import React, { Component } from 'react';   // React.Component = {Component}
 import CardList from './CardList';  //parent of Card component
 import SearchBox from './SearchBox';
 import { robots } from './robots';  // "robots" is inside of {} because in robots.js "export" isn't "default" so it could have multiple exports
-
+import './App.css';
 
 class App extends Component {
 
@@ -28,7 +28,7 @@ class App extends Component {
         })
         return (
             <div className="tc">
-                <h1>RoboFriends</h1>
+                <h1 className="f1">RoboFriends</h1>
                 <SearchBox searchChange={this.onSearchChange}/>
                 <CardList robots={filteredRobots}/>
             </div>
