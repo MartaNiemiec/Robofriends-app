@@ -21,7 +21,7 @@ class App extends Component {
 
     componentDidMount() {
         fetch('http://jsonplaceholder.typicode.com/users')  //fetch is a part of the window object
-        .then(response => response.json())
+        .then(response => response.json())  //response return a promise
         .then(users => this.setState({robots: users}));
     }
 
