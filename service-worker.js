@@ -11,10 +11,10 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Robofriends-app/precache-manifest.7ab43d2792af9641f1c3e43056e47861.js"
+  "/Robofriends-app/precache-manifest.34a926c31d054818e80fbffe56a6bec5.js"
 );
 
 workbox.clientsClaim();
