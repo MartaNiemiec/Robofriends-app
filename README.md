@@ -1,4 +1,4 @@
-LIVE [:arrow_forward:](https://martaniemiec.github.io/Robofriends-app/index.html)
+LIVE [:arrow_forward:](https://martaniemiec.github.io/Robofriends-app/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
