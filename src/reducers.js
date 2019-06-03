@@ -1,4 +1,4 @@
-export const CHANGE_SEARCH_FIELD = 'CHANGE_SEARCH_FIELD';
+import { CHANGE_SEARCH_FIELD } from './constants';
 
 
 const initialState = {
