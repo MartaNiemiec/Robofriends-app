@@ -6,37 +6,28 @@ import Scroll from '../components/Scroll';
 import ErrorBoundry from '../components/ErrorBoundry';
 import './App.css';
 
-import { setSearchField } from '../actions';
+import { setSearchField, requestRobots } from '../actions';
 
 const mapStateToProps = state => {
     return {
-        searchField: state.searchField
+        searchField: state.searchRobots.searchField,
+        robots: state.requestRobots.robots,
+        isPending: state.requestRobots.isPending,
+        error: state.requestRobots.error
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onSearchChange: (event) => dispatch(setSearchField(event.target.value))
+        onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+        onRequestRobots: () => dispatch(requestRobots())
     }
 }
 
 class App extends Component {
-
-    // ====== STATE ======
-    // state is something that can change and affect the app; 
-    // state lives in the parent component
-    constructor() {
-        super() // calls the constructor of Component
-        this.state = {
-            robots: []
-        }
-    }
     
-
     componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/users')  //fetch is a part of the window object
-        .then(response => response.json())  //response return a promise
-        .then(users => this.setState({robots: users}));
+        this.props.onRequestRobots();
     }
 
     
@@ -44,12 +35,11 @@ class App extends Component {
 
 
     render() {
-        const { robots } = this.state;
-        const { searchField, onSearchChange } = this.props;
+        const { searchField, onSearchChange, robots, isPending } = this.props;
         const filteredRobots = robots.filter(robot => {
             return robot.name.toLowerCase().includes(searchField.toLowerCase());
         })
-        return (!robots.length) ?   //if robots.length==0 so it's true, !the opposite is false
+        return isPending ?   //if robots.length==0 so it's true, !the opposite is false
             <h1>Loading...</h1> :
             (
                 <div className="tc">
